@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+
+{% block title %}table{% endblock title %}
+
+{% block body %}
+    <table class="table table-striped">
+        <tr class="table-success">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Address</th>
+            <th>Salary</th>
+        </tr>
+        {% for kar in employees  %}
+        <tr>
+            {% comment %} <td>{{forloop.counter}}</td> {% endcomment %}
+            <td>{{kar.id}}</td>
+            <td>{{kar.name}}</td>
+            <td>{{kar.age}}</td>
+            <td>{{kar.gender}}</td>
+            <td>{{kar.department}}</td>
+            <td>{{kar.address}}</td>
+            <td>{{kar.salary}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock body %}

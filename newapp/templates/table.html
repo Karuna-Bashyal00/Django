@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+
+{% block title %}table{% endblock title %}
+
+{% block body %}
+<h3>Total Task = {{total_task}}</h3>
+<h3>Completed Task = {{completed_task}}</h3>
+<h3>Pending Task = {{pending_task}}</h3>
+    <table class="table table-striped">
+        <tr class="table-success">
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Actions</th>
+            <th>Action</th>
+        </tr>
+        {% for kar in tasks  %}
+        <tr>
+            {% comment %} <td>{{forloop.counter}}</td> {% endcomment %}
+            <td>{{kar.id}}</td>
+            <td>{{kar.title}}</td>
+            <td>{{kar.description}}</td>
+            <td>{{kar.status}}</td>
+            <td>
+                <a class="btn btn-success" href="{% url "complete" pk=kar.pk %}" role="button">Complete</a>
+                <a class="btn btn-warning" href="{% url "pending" pk=kar.pk %}" role="button">Pending</a>
+            </td>
+            <td>
+                <a href="{% url "delete" pk=kar.pk %}" class='btn btn-danger'>Delete</a>
+                <a href="{% url "update" pk=kar.pk %}" class='btn btn-success'>Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock body %}

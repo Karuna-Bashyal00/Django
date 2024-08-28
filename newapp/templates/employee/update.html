@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+
+{% block title %}update{% endblock title %}
+
+{% block body %}
+<form action="" method="POST">
+    <h3 class='text-center m-3'>Employee Update Form</h3>
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputText" class="form-label">name</label>
+        <input type="text" name='name' class="form-control" id="exampleInputText" aria-describedby="textHelp">
+        
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputNumber" class="form-label">age</label>
+        <input type="number" name='age' class="form-control" id="exampleInputNumber">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputText" class="form-label">address</label>
+        <input type="text" name='address' class="form-control" id="exampleInputText">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputText" class="form-label">gender</label>
+        <select name="gender" id="gender">
+            <option value="MALE">MALE</option>
+            <option value="FEMALE">FEMALE</option>
+            <option value="OTHERS">OTHERS</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputText" class="form-label">salary</label>
+        <input type="text" name='salary' class="form-control" id="exampleInputText">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputText" class="form-label">department</label>
+        <select name="department" id="department">
+            <option value="FRONTEND">FRONTEND</option>
+            <option value="BACKEND">BACKEND</option>
+            <option value="DATABASE">DATABASE</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock body %}
